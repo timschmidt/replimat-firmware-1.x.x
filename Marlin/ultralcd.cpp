@@ -72,6 +72,8 @@ static void lcd_sdcard_menu();
 	static void action_laser_focus_5mm();
 	static void action_laser_focus_6mm();
 	static void action_laser_focus_7mm();
+    static void action_laser_align_x();
+    static void action_laser_align_y();
 	static void action_laser_test_20_50ms();
 	static void action_laser_test_20_100ms();
 	static void action_laser_test_100_50ms();
@@ -772,7 +774,9 @@ static void lcd_laser_menu()
 static void lcd_laser_test_fire_menu() {
 	START_MENU();
 	MENU_ITEM(back, "Laser Functions", lcd_laser_menu);
-	MENU_ITEM(function, " 20%  50ms", action_laser_test_20_50ms);
+    MENU_ITEM(function, "Fire laser for Y alignment", action_laser_align_y);
+	MENU_ITEM(function, "Fire laser for X alignment", action_laser_align_x);
+    MENU_ITEM(function, " 20%  50ms", action_laser_test_20_50ms);
 	MENU_ITEM(function, " 20% 100ms", action_laser_test_20_100ms);
 	MENU_ITEM(function, "100%  50ms", action_laser_test_100_50ms);
 	MENU_ITEM(function, "100% 100ms", action_laser_test_100_100ms);
@@ -787,6 +791,16 @@ static void action_laser_acc_on() {
 
 static void action_laser_acc_off() {
 	enquecommand_P(PSTR("M81"));
+}
+
+static void action_laser_align_y() {
+    enquecommand_P(PSTR("G28 Y"));
+    enquecommand_P(PSTR("G1 Y500 S20 P0.1 B1 L20"));
+}
+
+static void action_laser_align_x() {
+    enquecommand_P(PSTR("G28 X"));
+    enquecommand_P(PSTR("G1 X500 S20 P0.1 B1 L20"));
 }
 
 static void action_laser_test_20_50ms() {

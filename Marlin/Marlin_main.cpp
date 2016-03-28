@@ -1137,6 +1137,7 @@ void process_commands()
       break;
       #endif //FWRETRACT
     case 28: //G28 Home all Axis one at a time
+      fanSpeed=255;
       saved_feedrate = feedrate;
       saved_feedmultiply = feedmultiply;
       feedmultiply = 100;
@@ -2982,15 +2983,15 @@ void manage_inactivity()
         disable_e2();
         #ifdef LASER
           if (laser.time / 60000 > 0) {
-		    laser.lifetime += laser.time / 60000; // convert to minutes
-		    laser.time = 0;
-		    Config_StoreSettings();
-		  }
-		  laser_init();
-		#endif // LASER
-		#ifdef LASER_PERIPHERALS
+		laser.lifetime += laser.time / 60000; // convert to minutes
+		laser.time = 0;
+		Config_StoreSettings();
+	  }
+          laser_init();
+	#endif // LASER
+	#ifdef LASER_PERIPHERALS
             laser_peripherals_off();
-		#endif
+	#endif
       }
     }
   }
