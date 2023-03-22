@@ -1,22 +1,17 @@
 ==========================================
-Turnkey K40 Laser Arduino + Ramps Firmware
+Replimat Firmware v1.1.0
 ==========================================
 An example of this firmware in action : https://www.youtube.com/watch?v=6DKSxDIkqoA
 
 Based off Marlin for 3D printers, for more info see https://github.com/MarlinFirmware/Marlin
-Original credits for building this firmware from stock Marlin go to THinkscape and Lansing Makers Network and John for help with raster support. 
-This firmware is based on their foundation work.
 
-This firmware is designed to be used in conjunction with my Inkscape 0.91 gcode exporter https://github.com/TurnkeyTyranny/laser-gcode-exporter-inkscape-plugin
-
-You can contact me via email at : 394ad2f@gmail.com, I check my email daily usually.
+This firmware is designed to be used in conjunction with the Inkscape 0.91 gcode exporter here: https://github.com/TurnkeyTyranny/laser-gcode-exporter-inkscape-plugin
 
 Donations
 ---------
 Find this software useful? Donations are gratefully appreciated. 
 
-* Paypal to 394ad2f@gmail.com
-* Bitcoins to 16TFmnFyvDA8Q6TTakvvhargy8c89Rb3cj
+* https://wiki.replimat.org/wiki/Donations
 
 Safety Warnings
 ==================
@@ -24,7 +19,7 @@ Ensure that the Power Supply 5v rail is connected to RAMPS I2C 5v pin and that t
 
 Wiring
 ==================
-Wire your RAMPS board to your original laser end stops and laser power supply as shown in the wiring diagram in this repo.
+Wire your controller board to your original laser end stops and laser power supply as shown in the wiring diagram in this repo.
 
 
 Configuring and compilation:
@@ -34,7 +29,7 @@ Install the arduino software IDE/toolset (Some configurations also work with 1.x
    http://www.arduino.cc/en/Main/Software
 
 * Download the Marlin firmware to your PC and extract it
-   https://github.com/TurnkeyTyranny/buildlog-lasercutter-marlin/archive/master.zip
+   https://github.com/timschmidt/replimat-firmware-1.x/archive/master.zip
 
 * Start the Arduino IDE.
 
@@ -51,7 +46,7 @@ Install the arduino software IDE/toolset (Some configurations also work with 1.x
     If all goes well the firmware is uploading and you'll see the led on your arduino flashing wildly.
     The Arduino IDE will tell you when it has finished uploading.
 
-* Utilise my exporter with Inkscape to design your cuts and rasters
+* Utilise the exporter with Inkscape to design your cuts and rasters
     https://github.com/TurnkeyTyranny/laser-gcode-exporter-inkscape-plugin
 
 * Burn your eyeballs out!
@@ -60,6 +55,7 @@ Install the arduino software IDE/toolset (Some configurations also work with 1.x
 Features of this repo:
 ========================
 
+*   Support for 3D Printing, Laser cutting, Plasma cutting, CNC milling
 *   Modified for K40 power supplies that use 'Firing Pin Signal Low' to fire.
 *   Design in Inkscape, export to GCode, print!
 *   Raster image support, set your own max power level and have all pixel data appropriately shifted for intensity. Defaults to 270dpi
@@ -211,4 +207,3 @@ M Codes
 *  M351 - Toggle MS1 MS2 pins directly.
 *  M928 - Start SD logging (M928 filename.g) - ended by M29
 *  M999 - Restart after being stopped by error
-
