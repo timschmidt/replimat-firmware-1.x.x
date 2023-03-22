@@ -1,4 +1,3 @@
-==========================================
 Replimat Firmware v1.1.0
 ==========================================
 An example of this firmware in action : https://www.youtube.com/watch?v=6DKSxDIkqoA
